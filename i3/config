@@ -33,7 +33,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale ~/Downloads/00016.png; sleep 1; picom --config ~/.config/picom/picom.conf
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper/75.jpg; sleep 1; picom --config ~/.config/picom/picom.conf
 exec --no-startup-id lxsession
 
 # Use pactl to adjust volume in PulseAudio.
@@ -47,7 +47,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 floating_minimum_size 400 x 400
-floating_maximum_size 700 x 700
+floating_maximum_size 750 x 750
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -155,6 +155,7 @@ assign [class="kitty"] $ws2
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
+for_window [class="Blueman-manager"] floating enable
 # for_window [title="File Transfer*"] floating enable
 
 # reload the configuration file
