@@ -158,6 +158,9 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="Blueman-manager"] floating enable
 # for_window [title="File Transfer*"] floating enable
 
+gaps inner 5
+gaps outer 2
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
