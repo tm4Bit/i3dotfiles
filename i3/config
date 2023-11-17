@@ -199,4 +199,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   status_command i3blocks
+  colors {
+    background #1F1F28
+    separator #7EB3C9
+  }
 }
