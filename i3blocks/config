@@ -35,8 +35,8 @@ interval=1
 signal=1
 color=#DDD8BB
 
-[layout]
-command=xkblayout-state print "%s"
+[keyboard_layout]
+command=~/.config/i3blocks/keyboard_layout/keyboard_layout.sh
 interval=1
 color=#DDD8BB
 
