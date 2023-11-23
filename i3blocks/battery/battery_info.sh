@@ -12,7 +12,7 @@ then
     IS_CHARGING=$(echo "$ACPI_RES" | grep -v "unavailable" | awk '{ printf("%s\n", substr($3, 0, length($3)-1) ) }')
 
     # Print full text. The charging data.
-    echo " 󰁹 $BAT_LEVEL "
+    echo "󰁹 $BAT_LEVEL"
 
     # Print the short text.
     echo "BAT: $BAT_LEVEL"

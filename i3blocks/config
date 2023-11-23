@@ -9,18 +9,18 @@ interval=3
 color=#DDD8BB
 
 [CPU]
-full_text=  :  0.00% @ +00.0°C 
+full_text= :  0.00% @ +00.0°C
 command=~/.config/i3blocks/cpu/cpu_info.sh
 interval=repeat
 color=#DDD8BB
 
 [DISK]
-command=df -h / | awk '/\//{ printf(" 󰋊 %4s/%s \n", $4, $2) }'
+command=df -h / | awk '/\//{ printf("󰋊 %4s/%s\n", $4, $2) }'
 interval=2
 color=#DDD8BB
 
 [MEM]
-command=free -h | awk '/Mem:/ { printf(" 󰍛 %5s/%s \n", $3, $2) }'
+command=free -h | awk '/Mem:/ { printf("󰍛 %5s/%s\n", $3, $2) }'
 interval=1
 color=#DDD8BB
 
@@ -41,12 +41,12 @@ interval=1
 color=#DDD8BB
 
 [TIME_DATE]
-command=date +" %a, %d %b - %H:%M:%S "
+command=date +"%a, %d %b - %H:%M:%S"
 interval=1
 color=#DDD8BB
 
 [shutdown_menu]
-full_text=  
+full_text= 
 command=~/.config/i3blocks/shutdown_menu/shutdown_menu
 ROFI_TEXT=Menu
 ENABLE_CONFIRMATIONS=true
