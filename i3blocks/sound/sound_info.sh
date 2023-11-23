@@ -23,5 +23,5 @@ else
     fi
 fi
 
-echo "$ICON: $SOUND_LEVEL%" 
+echo "$ICON $SOUND_LEVEL%" 
 
