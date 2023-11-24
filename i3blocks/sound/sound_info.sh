@@ -1,9 +1,9 @@
 #!/bin/sh
 
-VOLUME_MUTE="󰖁 "
-VOLUME_LOW="󰕿 "
-VOLUME_MID="󰖀 "
-VOLUME_HIGH="󰕾 "
+VOLUME_MUTE="󰖁"
+VOLUME_LOW=""
+VOLUME_MID=""
+VOLUME_HIGH=""
 SOUND_LEVEL=$(pamixer --get-volume --set-limit 100)
 MUTED=$(pamixer --get-mute)
 
