@@ -52,7 +52,7 @@ bindsym $mod+q kill
 bindsym $mod+Shift+q exec --no-startup-id ~/i3dotfiles/i3blocks/shutdown_menu/shutdown_menu
 bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+space exec --no-startup-id rofi -show run
-bindsym Mod1+c exec --no-startup-id clipmenu
+bindsym Mod1+c exec --no-startup-id ~/i3dotfiles/scripts/_clipmenu.sh
 bindsym Mod1+e exec --no-startup-id rofimoji --action copy --prompt "Select an emoji"
 bindsym Mod1+s exec --no-startup-id ~/i3dotfiles/scripts/screenshot.sh
 
@@ -177,3 +177,12 @@ bar {
     separator #7EB3C9
   }
 }
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #7EB3C9 #7EB3C9 #DDD8BB #7EB3C9   #7EB3C9 
+client.focused_inactive #49473E #A8A48D #DDD8BB #A8A48D   #A8A48D 
+client.unfocused        #49473E #1F1F28 #49473E #1F1F28   #1F1F28 
+client.urgent           #363644 #E46A78 #DDD8BB #E46A78   #E46A78 
+client.placeholder      #1F1F28 #1F1F28 #DDD8BB #1F1F28   #1F1F28 
+
+client.background       #DDD8BB 
