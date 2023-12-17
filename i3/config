@@ -182,10 +182,10 @@ mode "resize" {
 # }
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #7EB3C9 #49473E #DDD8BB #3b82f6   #7EB3C9 
-client.focused_inactive #49473E #A8A48D #DDD8BB #A8A48D   #A8A48D 
-client.unfocused        #49473E #1F1F28 #49473E #1F1F28   #1F1F28 
-client.urgent           #363644 #E46A78 #DDD8BB #E46A78   #E46A78 
-client.placeholder      #1F1F28 #1F1F28 #DDD8BB #1F1F28   #1F1F28 
+client.focused          #7EB3C9 #1F1F28 #DDD8BB #3b82f6   #7EB3C9
+client.focused_inactive #A8A48D #1F1F28 #DDD8BB #A8A48D   #A8A48D
+client.unfocused        #A8A48D #1F1F28 #49473E #A8A48D   #A8A48D
+client.urgent           #E46A78 #1F1F28 #DDD8BB #E46A78   #E46A78
+client.placeholder      #1F1F28 #1F1F28 #DDD8BB #1F1F28   #1F1F28
 
-client.background       #DDD8BB 
+client.background       #DDD8BB
