@@ -119,7 +119,7 @@ menu=(
   [Hibernate]="systemctl hibernate"
   [Suspend]="systemctl suspend"
   [Halt]="systemctl halt"
-  [Lock]="convert $HOME/Pictures/wallpaper/get_the_fuck_out.png -resize $(xdpyinfo | grep dimensions | cut -d\  -f7 | cut -dx -f1) -gravity Center -background '#000000' -extent $(xdpyinfo | grep dimensions | cut -d' ' -f7) RGB:- | i3lock --raw $(xdpyinfo | grep dimensions | cut -d' ' -f7):rgb -c '#000000' -i /dev/stdin"
+  [Lock]="convert $HOME/Pictures/wallpaper/black_arch.png -resize $(xdpyinfo | grep dimensions | cut -d\  -f7 | cut -dx -f1) -gravity Center -background '#000000' -extent $(xdpyinfo | grep dimensions | cut -d' ' -f7) RGB:- | i3lock --raw $(xdpyinfo | grep dimensions | cut -d' ' -f7):rgb -c '#000000' -i /dev/stdin"
   [Logout]="i3-msg exit"
   [Cancel]=""
 )
