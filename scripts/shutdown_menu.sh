@@ -116,7 +116,6 @@ typeset -A menu
 menu=(
   [Shutdown]="systemctl poweroff"
   [Reboot]="systemctl reboot"
-  [Hibernate]="systemctl hibernate"
   [Suspend]="systemctl suspend"
   [Halt]="systemctl halt"
   [Lock]="convert $HOME/Pictures/wallpaper/black_arch.png -resize $(xdpyinfo | grep dimensions | cut -d\  -f7 | cut -dx -f1) -gravity Center -background '#000000' -extent $(xdpyinfo | grep dimensions | cut -d' ' -f7) RGB:- | i3lock --raw $(xdpyinfo | grep dimensions | cut -d' ' -f7):rgb -c '#000000' -i /dev/stdin"
@@ -126,7 +125,7 @@ menu=(
 menu_nrows=${#menu[@]}
 
 # Menu entries that may trigger a confirmation message
-menu_confirm="Shutdown Reboot Hibernate Suspend Halt Logout"
+menu_confirm="Shutdown Reboot Suspend Halt Logout"
 
 launcher_exe=""
 launcher_options=""
