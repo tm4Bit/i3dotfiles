@@ -44,14 +44,14 @@ floating_maximum_size 750 x 600
 
 # bindings
 bindsym $mod+Return exec kitty
-bindsym $mod+e exec kitty -e vifm
+bindsym $mod+e exec kitty -e ranger
 bindsym $mod+m exec brave --app="https://music.youtube.com/"
 bindsym $mod+c exec brave --app="https://chat.openai.com/"
 
 # kill focused window
 bindsym $mod+q kill
 
-bindsym $mod+Shift+q exec --no-startup-id ~/i3dotfiles/i3blocks/shutdown_menu/shutdown_menu
+bindsym $mod+Shift+q exec --no-startup-id ~/i3dotfiles/scripts/power_menu.sh
 bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+space exec --no-startup-id rofi -show run
 bindsym Mod1+c exec --no-startup-id ~/i3dotfiles/scripts/_clipmenu.sh
