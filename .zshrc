@@ -71,12 +71,18 @@ alias update="yay -Suy"
 
 # Git
 alias g="git"
-alias commit="git commit -m"
-alias add="git add -A"
-alias push="git push"
+alias gs="git status"
+alias gc="git commit -m"
+alias ga="git add -A"
+alias gp="git push"
+alias gl="git log"
 
 # Lazygit 
 alias lazy="lazygit"
+
+# zellij
+alias z="zellij"
+alias zw="zellij -l welcome"
 
 #############################################################################################
 #▄▖▖▖▄▖▄▖▄▖▄▖  ▄▖▖ ▖▄   ▄▖▄▖▄▖▖▖
