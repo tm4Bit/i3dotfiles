@@ -1,36 +1,30 @@
-#############################################################################################
+###############################################################################
 # ███████╗███████╗██╗  ██╗
 # ╚══███╔╝██╔════╝██║  ██║
 #   ███╔╝ ███████╗███████║
 #  ███╔╝  ╚════██║██╔══██║
 # ███████╗███████║██║  ██║
 # ╚══════╝╚══════╝╚═╝  ╚═╝ (config)
-#############################################################################################
+###############################################################################
 
 # PERFORMANCE:
 # zmodload zsh/zprof # (DEBUG PERFORMANCE)
-# zprof # (PUT THIS IN THE LAST LINE)
-
-# Prompt
-#figlet -f "ANSI Shadow" "tma42" | lolcat
-#figlet -f smkeyboard "npm run dev" | lolcat
-# neofetch
 
 #############################################################################################
 #  ▗ ▄▖▌   Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-#▛▌▜ ▛▌▙▘  Initialization code that may require console input (password prompts, [y/n]
-#▙▌▟▖█▌▛▖  confirmations, etc.) must go above this block; everything else may go below.
-#▌
+#▛▌▜ ▛▌▙▘  Initialization code that may require console input (password prompts, [y/n]   
+#▙▌▟▖█▌▛▖  confirmations, etc.) must go above this block; everything else may go below.  
+#▌                                                                                       
 #############################################################################################
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#############################################################################################
+###############################################################################
 #▀▌▀▌▛▌
 #▙▖█▌▙▌
-#    ▌
-#############################################################################################
+#    ▌ 
+###############################################################################
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 
 # plugins
@@ -41,33 +35,29 @@ plug "Aloxaf/fzf-tab"
 plug "zap-zsh/vim"
 plug "romkatv/powerlevel10k"
 plug "hlissner/zsh-autopair"
-# plug "TiagoAraujoDev/fzf-zellij"
 
-#############################################################################################
-#    ▘
+###############################################################################
+#    ▘   
 #▛▌▌▌▌▛▛▌
 #▌▌▚▘▌▌▌▌
-#############################################################################################
+###############################################################################
 
-# alias v="vim"
-# alias avim="NVIM_APPNAME='avim' nvim"
+alias avim="NVIM_APPNAME='avim' nvim"
 
-#############################################################################################
-#  ▜ ▘
+###############################################################################
+#  ▜ ▘    
 #▀▌▐ ▌▀▌▛▘
 #█▌▐▖▌█▌▄▌
-#############################################################################################
+###############################################################################
 # zsh and oh-my-zsh aliases
-alias zshconfig="vim ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 
 # System update and upgrade
 alias update="yay -Suy"
 
-# Java alias 
-#alias javarun="../ && clear && javac -d bin src/**/*.java && cd bin && java application.Main"
-
-# Tmux 
-#alias tmx="tmuxinator"
+# sxiv
+alias view="sxiv"
+alias viewa="sxiv -t *"
 
 # Git
 alias g="git"
@@ -80,30 +70,49 @@ alias gl="git log"
 # Lazygit 
 alias lazy="lazygit"
 
-# zellij
-alias z="zellij"
-alias zw="zellij -l welcome"
+# Bindkeys
+bindkey '^ ' autosuggest-accept
+bindkey -s '^o' "t^M"
 
-#############################################################################################
-#▄▖▖▖▄▖▄▖▄▖▄▖  ▄▖▖ ▖▄   ▄▖▄▖▄▖▖▖
-#▙▖▚▘▙▌▌▌▙▘▐   ▌▌▛▖▌▌▌  ▙▌▌▌▐ ▙▌
-#▙▖▌▌▌ ▙▌▌▌▐   ▛▌▌▝▌▙▘  ▌ ▛▌▐ ▌▌
-#############################################################################################
+###############################################################################
+#▄▖▖▖▄▖▄▖▄▖▄▖  ▄▖▖ ▖▄   ▄▖▄▖▄▖▖▖                                              #
+#▙▖▚▘▙▌▌▌▙▘▐   ▌▌▛▖▌▌▌  ▙▌▌▌▐ ▙▌                                              #
+#▙▖▌▌▌ ▙▌▌▌▐   ▛▌▌▝▌▙▘  ▌ ▛▌▐ ▌▌                                              #
+###############################################################################
 # EDITOR
 export EDITOR='nvim'
 
 #gopls
 export PATH="$HOME/go/bin:$PATH"
 
-# fnm
-# export PATH="/home/tma/.local/share/fnm:$PATH"
-# eval "`fnm env`"
+# fzf theme
+export FZF_DEFAULT_OPTS="
+  --color=fg:#d1d5db,bg:#09090b,hl:#4ade80
+  --color=fg+:#71717a,bg+:#09090b,hl+:#4ade80
+  --color=border:#3f3f46,header:#60a5fa,gutter:#3f3f46
+  --color=spinner:#52525b,info:#52525b,separator:#27272a
+  --color=pointer:#60a5fa,marker:#f87171,prompt:#60a5fa"
+
+export CM_LAUNCHER=$(which rofi)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# fnm
+FNM_PATH="/home/tma/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/tma/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="$HOME/.sdkman"
-#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # zprof # (PUT THIS IN THE LAST LINE)

@@ -150,4 +150,4 @@ configuration {
   }
 }
 
-@theme "kanagawa"
+@theme "grayscale"

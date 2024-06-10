@@ -10,6 +10,8 @@
 
 # Master key set to `SUPER`
 set $mod Mod4
+set $fm eDP-1
+set $sm HDMI-1
 
 default_border pixel 2
 gaps inner 4
@@ -25,7 +27,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id lxsession
 exec --no-startup-id clipmenud
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/Linux_4K.png; sleep 1; picom --config ~/.config/picom/picom.conf -b
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/hacking.jpg; sleep 1; picom --config ~/.config/picom/picom.conf -b
 exec_always --no-startup-id "setxkbmap -model pc105 -layout us,br -variant ,, -option grp:alt_shift_toggle"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
@@ -43,10 +45,11 @@ floating_minimum_size 400 x 400
 floating_maximum_size 750 x 600
 
 # bindings
-bindsym $mod+Return exec kitty
-bindsym $mod+e exec kitty -e ranger
-bindsym $mod+m exec brave --app="https://music.youtube.com/"
-bindsym $mod+c exec brave --app="https://chat.openai.com/"
+bindsym $mod+Return exec --no-startup-id "kitty"
+bindsym $mod+bracketleft exec --no-startup-id "alacritty"
+bindsym $mod+e exec --no-startup-id kitty -e ranger
+bindsym $mod+m exec --no-startup-id brave --app="https://music.youtube.com/"
+bindsym $mod+c exec --no-startup-id brave --app="https://chatgpt.com/"
 
 # kill focused window
 bindsym $mod+q kill
@@ -76,23 +79,23 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# toggle split orientation
-bindsym $mod+semicolon split toggle
-
 # enter fullscreen mode for the focused container
-bindsym $mod+F11 fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+x layout toggle all
+bindsym $mod+semicolon layout toggle tabbed splitv 
 
 # toggle tiling / floating
-bindsym $mod+f floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+Shift+f focus mode_toggle
+# bindsym $mod+f floating toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+workspace 1 output $fm
+workspace 2 output $sm
+workspace 3 output $sm
+workspace 4 output $sm
+workspace 5 output $sm
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -100,7 +103,7 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-# set $ws5 "5"
+set $ws5 "5"
 # set $ws6 "6"
 # set $ws7 "7"
 # set $ws8 "8"
@@ -108,11 +111,11 @@ set $ws4 "4"
 # set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+u workspace number $ws1
-bindsym $mod+i workspace number $ws2
-bindsym $mod+o workspace number $ws3
-bindsym $mod+p workspace number $ws4
-# bindsym $mod+5 workspace number $ws5
+bindsym $mod+y workspace number $ws1
+bindsym $mod+u workspace number $ws2
+bindsym $mod+i workspace number $ws3
+bindsym $mod+o workspace number $ws4
+bindsym $mod+p workspace number $ws5
 # bindsym $mod+6 workspace number $ws6
 # bindsym $mod+7 workspace number $ws7
 # bindsym $mod+8 workspace number $ws8
@@ -120,11 +123,11 @@ bindsym $mod+p workspace number $ws4
 # bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+u move container to workspace number $ws1
-bindsym $mod+Shift+i move container to workspace number $ws2
-bindsym $mod+Shift+o move container to workspace number $ws3
-bindsym $mod+Shift+p move container to workspace number $ws4
-# bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+y move container to workspace number $ws1
+bindsym $mod+Shift+u move container to workspace number $ws2
+bindsym $mod+Shift+i move container to workspace number $ws3
+bindsym $mod+Shift+o move container to workspace number $ws4
+bindsym $mod+Shift+p move container to workspace number $ws5
 # bindsym $mod+Shift+6 move container to workspace number $ws6
 # bindsym $mod+Shift+7 move container to workspace number $ws7
 # bindsym $mod+Shift+8 move container to workspace number $ws8
@@ -181,11 +184,20 @@ mode "resize" {
 #   }
 # }
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #7EB3C9 #1F1F28 #DDD8BB #3b82f6   #7EB3C9
-client.focused_inactive #A8A48D #1F1F28 #DDD8BB #A8A48D   #A8A48D
-client.unfocused        #A8A48D #1F1F28 #49473E #A8A48D   #A8A48D
-client.urgent           #E46A78 #1F1F28 #DDD8BB #E46A78   #E46A78
-client.placeholder      #1F1F28 #1F1F28 #DDD8BB #1F1F28   #1F1F28
+# Grayscale
+set $base          #030712 
+set $surface       #111827 
+set $overlay       #1f2937 
+set $subtle        #374151  
+set $text          #d1d5db 
+set $alert         #ef4444 
+set $primary       #4b5563 
 
-client.background       #DDD8BB
+# Teming border and Windows --------------
+# target                 title    bg    text  indicator border
+client.focused           $primary $base $text $primary  $primary
+client.focused_inactive  $overlay $base $text $subtle   $surface
+client.unfocused         $overlay $base $text $overlay  $overlay
+client.urgent            $text    $base $text $alert    $alert
+client.placeholder       $base    $base $text $overlay  $overlay
+client.background        $base
