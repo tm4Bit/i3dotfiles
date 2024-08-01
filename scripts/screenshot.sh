@@ -15,27 +15,25 @@ choice=$(echo -e $options | rofi -dmenu -p "Screenshot option")
 
 case $choice in
   $option1)
-    maim -s > $screenshot_dir/$screenshot_name
+    maim -s -d 1.0 > $screenshot_dir/$screenshot_name
     dunstify -i "/home/tma/i3dotfiles/dunst/devices/drive-harddisk-system-symbolic.svg" "Screenshot saved!"
     sxiv $screenshot_dir/$screenshot_name
   ;;
   $option2)
-    maim -s | xclip -selection clipboard -t image/png
+    maim -s -d 2.0 | xclip -selection clipboard -t image/png
     dunstify -i "/home/tma/i3dotfiles/dunst/actions/edit-copy-symbolic.svg" "Screenshot copied!"
   ;;
   $option3)
-    sleep 2
-    maim -i $(xdotool getactivewindow) > $screenshot_dir/$screenshot_name
+    maim -i $(xdotool getactivewindow) -d 2.0 > $screenshot_dir/$screenshot_name
     dunstify -i "/usr/share/icons/Adwaita/scalable/devices/drive-harddisk.svg" "Screenshot saved!"
     sxiv $screenshot_dir/$screenshot_name
   ;;
   $option4)
-    sleep 2
+    maim -i $(xdotool getactivewindow) -d 2.0 | sclip -selection clipboard -t image/png
     dunstify -i "/home/tma/i3dotfiles/dunst/actions/edit-copy-symbolic.svg" "Screenshot copied!"
-    maim -i $(xdotool getactivewindow) | sclip -selection clipboard -t image/png
   ;;
   $option5)
-    maim -st 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:- | cut -c 2- | xclip -selection clipboard
+    maim -st 0 -d 1.0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:- | cut -c 2- | xclip -selection clipboard
     dunstify -i "/home/tma/i3dotfiles/dunst/actions/edit-copy-symbolic.svg" "Color copied!"
   ;;
 esac 

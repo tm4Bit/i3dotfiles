@@ -20,14 +20,14 @@ gaps outer 0
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:JetBrainsMono Nerd Font 8
-font pango:Lilex Nerd Font 8
+font pango:SpaceMono Nerd Font 8
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id lxsession
 exec --no-startup-id clipmenud
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/hacking.jpg; sleep 1; picom --config ~/.config/picom/picom.conf -b
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/nice-blue-background.png; sleep 1; picom --config ~/.config/picom/picom.conf -b
 exec_always --no-startup-id "setxkbmap -model pc105 -layout us,br -variant ,, -option grp:alt_shift_toggle"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
@@ -45,9 +45,9 @@ floating_minimum_size 400 x 400
 floating_maximum_size 750 x 600
 
 # bindings
-bindsym $mod+Return exec --no-startup-id "kitty"
-bindsym $mod+bracketleft exec --no-startup-id "alacritty"
-bindsym $mod+e exec --no-startup-id kitty -e ranger
+bindsym $mod+Return exec --no-startup-id "wezterm"
+bindsym $mod+bracketleft exec --no-startup-id "kitty"
+bindsym $mod+e exec --no-startup-id wezterm start yazi
 bindsym $mod+m exec --no-startup-id brave --app="https://music.youtube.com/"
 bindsym $mod+c exec --no-startup-id brave --app="https://chatgpt.com/"
 
@@ -140,6 +140,7 @@ bindsym $mod+Shift+p move container to workspace number $ws5
 
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable
+for_window [instance="org.wezfurlong.wezterm"] fullscreen enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Sxiv"] floating enable

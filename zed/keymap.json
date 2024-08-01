@@ -1,0 +1,66 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in normal & visual mode
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+      "space e": "workspace::ToggleLeftDock",
+      "space o": "tab_switcher::Toggle",
+      "space f s": "outline::Toggle",
+      "space w": "workspace::Save",
+      "space q": "pane::CloseActiveItem",
+      "space Q": "pane::CloseAllItems",
+      "H": "pane::ActivatePrevItem",
+      "L": "pane::ActivateNextItem",
+      "ctrl-/": "editor::ToggleComments",
+      "space l a": "editor::ToggleCodeActions",
+      "space l f": "editor::Format",
+      "space l r": "editor::Rename",
+      "space f f": "file_finder::Toggle",
+      "space l d": "editor::GoToDiagnostic",
+      "g h": "editor::Hover",
+      "g d": "editor::GoToDefinitionSplit",
+      "g r": "editor::FindAllReferences",
+      "space |": "pane::SplitRight",
+      "space -": "pane::SplitDown",
+      "z c": "editor::Fold",
+      "z o": "editor::UnfoldLines"
+    }
+  },
+  {
+    "context": "vim_mode == visual && !menu",
+    "bindings": {
+      // visual, visual line & visual block modes
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    "context": "vim_mode == insert && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in insert mode
+      // e.g.
+      "k j": "vim::NormalBefore" // remap jj in insert mode to escape.
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // put key-bindings here (in addition to above) if you want them to
+      // work when no editor exists
+      // e.g.
+      // "space f": "file_finder::Toggle"
+    }
+  }
+  // {
+  //   "context": "Workspace",
+  //   "bindings": {
+  //     "space e": "workspace::ToggleLeftDock"
+  //   }
+  // }
+]
