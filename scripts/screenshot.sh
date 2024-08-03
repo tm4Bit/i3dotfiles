@@ -29,7 +29,7 @@ case $choice in
     sxiv $screenshot_dir/$screenshot_name
   ;;
   $option4)
-    maim -i $(xdotool getactivewindow) -d 2.0 | sclip -selection clipboard -t image/png
+    maim -i $(xdotool getactivewindow) -d 2.0 | xclip -selection clipboard -t image/png
     dunstify -i "/home/tma/i3dotfiles/dunst/actions/edit-copy-symbolic.svg" "Screenshot copied!"
   ;;
   $option5)
