@@ -17,19 +17,25 @@
       "space Q": "pane::CloseAllItems",
       "H": "pane::ActivatePrevItem",
       "L": "pane::ActivateNextItem",
-      "ctrl-/": "editor::ToggleComments",
+      "space /": "editor::ToggleComments",
       "space l a": "editor::ToggleCodeActions",
       "space l f": "editor::Format",
       "space l r": "editor::Rename",
       "space f f": "file_finder::Toggle",
-      "space l d": "editor::GoToDiagnostic",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPrevDiagnostic",
       "g h": "editor::Hover",
+      "g l": "editor::GoToDiagnostic",
       "g d": "editor::GoToDefinitionSplit",
       "g r": "editor::FindAllReferences",
       "space |": "pane::SplitRight",
       "space -": "pane::SplitDown",
       "z c": "editor::Fold",
-      "z o": "editor::UnfoldLines"
+      "z o": "editor::UnfoldLines",
+      "space S": "pane::DeploySearch",
+      "ctrl-j": "workspace::NewTerminal",
+      "space t": "terminal_panel::ToggleFocus",
+      "space g p": "editor::ToggleHunkDiff"
     }
   },
   {
@@ -54,13 +60,15 @@
       // put key-bindings here (in addition to above) if you want them to
       // work when no editor exists
       // e.g.
-      // "space f": "file_finder::Toggle"
+      "space f f": "file_finder::Toggle",
+      "space q": "pane::CloseActiveItem",
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "space e": "workspace::ToggleLeftDock"
     }
   }
-  // {
-  //   "context": "Workspace",
-  //   "bindings": {
-  //     "space e": "workspace::ToggleLeftDock"
-  //   }
-  // }
 ]

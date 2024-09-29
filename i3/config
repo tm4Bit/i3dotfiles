@@ -14,7 +14,7 @@ set $fm eDP-1
 set $sm HDMI-1
 
 default_border pixel 2
-gaps inner 4
+gaps inner 0
 gaps outer 0
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -45,8 +45,8 @@ floating_minimum_size 400 x 400
 floating_maximum_size 750 x 600
 
 # bindings
-bindsym $mod+Return exec --no-startup-id "wezterm"
-bindsym $mod+bracketleft exec --no-startup-id "kitty"
+bindsym $mod+bracketleft exec --no-startup-id "wezterm"
+bindsym $mod+Return exec --no-startup-id "kitty"
 bindsym $mod+e exec --no-startup-id wezterm start yazi
 bindsym $mod+m exec --no-startup-id brave --app="https://music.youtube.com/"
 bindsym $mod+c exec --no-startup-id brave --app="https://chatgpt.com/"
@@ -135,12 +135,13 @@ bindsym $mod+Shift+p move container to workspace number $ws5
 # bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Open applications on specific workspaces
-# assign [class="Brave"] $ws1
-# assign [class="kitty"] $ws2
+# assign [instance="sxiv"] $ws4
+assign [instance="org.pwmt.zathura"] $ws4
 
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable
 for_window [instance="org.wezfurlong.wezterm"] fullscreen enable
+for_window [instance="kitty"] fullscreen enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Sxiv"] floating enable

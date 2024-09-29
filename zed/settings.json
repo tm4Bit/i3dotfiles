@@ -1,7 +1,7 @@
 {
   "base_keymap": "VSCode",
   "vim_mode": true,
-  "buffer_font_family": "Lilex Nerd Font",
+  "buffer_font_family": "CaskaydiaCove Nerd Font Mono",
   "buffer_font_size": 16,
   "ui_font_size": 16,
   "relative_line_numbers": true,
@@ -16,5 +16,10 @@
     "mode": "system",
     "light": "Rosé Pine",
     "dark": "One Dark"
+  },
+  "terminal": {
+    "env": {
+      "EDITOR": "zed --wait"
+    }
   }
 }

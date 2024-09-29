@@ -25,7 +25,7 @@ fi
 ###############################################################################
 #▀▌▀▌▛▌
 #▙▖█▌▙▌
-#    ▌ 
+#    ▌
 ###############################################################################
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 
@@ -35,22 +35,19 @@ plug "zap-zsh/supercharge"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "Aloxaf/fzf-tab"
-plug "zap-zsh/vim"
+export VI_MODE_ESC_INSERT="kj" && plug "zap-zsh/vim"
 plug "romkatv/powerlevel10k"
 plug "hlissner/zsh-autopair"
 
 ###############################################################################
-#    ▘   
+#    ▘
 #▛▌▌▌▌▛▛▌
 #▌▌▚▘▌▌▌▌
 ###############################################################################
-
 alias avim="NVIM_APPNAME='avim' nvim"
-alias ovim="NVIM_APPNAME='nvim.old' nvim"
-alias kvim="NVIM_APPNAME='kvim' nvim"
 
 ###############################################################################
-#  ▜ ▘    
+#  ▜ ▘
 #▀▌▐ ▌▀▌▛▘
 #█▌▐▖▌█▌▄▌
 ###############################################################################
@@ -78,46 +75,60 @@ alias gl="git log"
 alias lazy="lazygit"
 
 # Bindkeys
-bindkey '^ ' autosuggest-accept
+bindkey '^Y' autosuggest-accept
 bindkey -s '^o' "t^M"
 bindkey -s '^e' "yy^M"
 
 ###############################################################################
-#▄▖▖▖▄▖▄▖▄▖▄▖  ▄▖▖ ▖▄   ▄▖▄▖▄▖▖▖                                              #
-#▙▖▚▘▙▌▌▌▙▘▐   ▌▌▛▖▌▌▌  ▙▌▌▌▐ ▙▌                                              #
-#▙▖▌▌▌ ▙▌▌▌▐   ▛▌▌▝▌▙▘  ▌ ▛▌▐ ▌▌                                              #
+#.########.########.########.########.##.....##.########.##.....##.########
+#.##............##..##..........##....##.....##.##.......###...###.##......
+#.##...........##...##..........##....##.....##.##.......####.####.##......
+#.######......##....######......##....#########.######...##.###.##.######..
+#.##.........##.....##..........##....##.....##.##.......##.....##.##......
+#.##........##......##..........##....##.....##.##.......##.....##.##......
+#.##.......########.##..........##....##.....##.########.##.....##.########
+###############################################################################
+# Rose pine
+# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+#   --layout=reverse \
+#   --border=sharp \
+# 	--color=fg:#908caa,bg:#191724,hl:#ebbcba
+# 	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
+# 	--color=border:#403d52,header:#31748f,gutter:#191724
+# 	--color=spinner:#f6c177,info:#9ccfd8
+# 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+
+# Kanagawa
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --layout=reverse \
+  --border=sharp \
+	--color=fg:#C5C9C5,bg:#0D0C0C,hl:#2D4F67
+	--color=fg+:#C8C093,bg+:#181616,hl+:#2D4F67
+	--color=border:#A6A69C,header:#7FB4CA,gutter:#181616
+	--color=spinner:#E6C384,info:#8BA4B0
+	--color=pointer:#938AA9,marker:#E46876,prompt:#938AA9"
+	
+# Tokyonight
+# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+#   --layout=reverse \
+#   --highlight-line \
+#   --border=sharp \
+# 	--color=fg:#c8d3f5,bg:#1e2030,hl:#65bcff
+# 	--color=fg+:#c8d3f5,bg+:#1e2030,hl+:#65bcff
+# 	--color=border:#589ed7,header:#ff966c,gutter:#1e2030
+# 	--color=spinner:#ff007c,info:#545c7e
+# 	--color=pointer:#ff007c,marker:#ff007c,prompt:#65bcff"
+
+###############################################################################
+# ▄▖▖▖▄▖▄▖▄▖▄▖  ▄▖▖ ▖▄   ▄▖▄▖▄▖▖▖                                              #
+# ▙▖▚▘▙▌▌▌▙▘▐   ▌▌▛▖▌▌▌  ▙▌▌▌▐ ▙▌                                              #
+# ▙▖▌▌▌ ▙▌▌▌▐   ▛▌▌▝▌▙▘  ▌ ▛▌▐ ▌▌                                              #
 ###############################################################################
 # EDITOR
 export EDITOR='nvim'
 
 #gopls
 export PATH="$HOME/go/bin:$PATH"
-
-# fzf theme
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --pointer=' ' \
-  --info=inline-right \
-  --ansi \
-  --highlight-line \
-  --layout=reverse \
-  --border=sharp
-  --color=bg+:#1e2030 \
-  --color=bg:#1e2030 \
-  --color=border:#589ed7 \
-  --color=fg:#c8d3f5 \
-  --color=gutter:#1e2030 \
-  --color=header:#ff966c \
-  --color=hl+:#65bcff \
-  --color=hl:#65bcff \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#65bcff \
-  --color=query:#c8d3f5:regular \
-  --color=scrollbar:#589ed7 \
-  --color=separator:#ff966c \
-  --color=spinner:#ff007c \
-"
 
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
