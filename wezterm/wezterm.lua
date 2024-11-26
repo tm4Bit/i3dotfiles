@@ -5,7 +5,6 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
-
 -- This is the GUI config
 config.window_padding = {
 	left = 0,
@@ -20,6 +19,7 @@ config.window_close_confirmation = "AlwaysPrompt"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_rate = 400
+config.font_size = 14
 
 --[[
 -- config.window_background_image = '/home/tma/Pictures/wallpaper/gnu-linux-wallpapers.png'
@@ -36,12 +36,21 @@ config.window_background_image_hsb = {
 }
 ]]
 -- Font configuration
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font("IosevkaTermSlab Nerd Font")
+-- config.font = wezterm.font("IosevkaTerm Nerd Font")
+-- config.font = wezterm.font("JetBrainsMono Nerd Font")
+-- config.font = wezterm.font("SpaceMono Nerd Font")
+-- config.font = wezterm.font("CaskaydiaCove Nerd Font")
+-- config.font = wezterm.font("FiraCode Nerd Font")
+-- config.font = wezterm.font("ZedMono Nerd Font")
+-- config.font = wezterm.font("CodeNewRoman Nerd Font")
+-- config.font = wezterm.font("D2CodingLigature Nerd Font")
+-- config.font = wezterm.font("Iosevka Nerd Font")
 
 -- Colorscheme
 -- checkout https://wezfurlong.org/wezterm/colorschemes/index.html for more
 -- config.color_scheme = "Sonokai (Gogh)"
--- config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "Catppuccin Macchiato"
 -- config.color_scheme = 'GitHub Dark'
 -- config.color_scheme = 'Batman'
 

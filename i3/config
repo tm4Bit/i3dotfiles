@@ -27,9 +27,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id lxsession
 exec --no-startup-id clipmenud
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/nice-blue-background.png; sleep 1; picom --config ~/.config/picom/picom.conf -b
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/sunset_game.png; sleep 1; picom --config ~/.config/picom/picom.conf -b
 exec_always --no-startup-id "setxkbmap -model pc105 -layout us,br -variant ,, -option grp:alt_shift_toggle"
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -45,11 +45,12 @@ floating_minimum_size 400 x 400
 floating_maximum_size 750 x 600
 
 # bindings
-bindsym $mod+bracketleft exec --no-startup-id "wezterm"
-bindsym $mod+Return exec --no-startup-id "kitty"
+bindsym $mod+bracketleft exec --no-startup-id "kitty"
+bindsym $mod+Return exec --no-startup-id "wezterm"
 bindsym $mod+e exec --no-startup-id wezterm start yazi
-bindsym $mod+m exec --no-startup-id brave --app="https://music.youtube.com/"
-bindsym $mod+c exec --no-startup-id brave --app="https://chatgpt.com/"
+bindsym $mod+m exec --no-startup-id firefox --kiosk --new-window "https://music.youtube.com/"
+bindsym $mod+c exec --no-startup-id firefox --kiosk --new-window "https://chatgpt.com/"
+# bindsym $mod+c exec --no-startup-id brave --app="https://chatgpt.com/"
 
 # kill focused window
 bindsym $mod+q kill
@@ -175,31 +176,107 @@ mode "resize" {
   bindsym $mod+r mode "default"
 }
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#   status_command i3blocks
-#   separator_symbol "  "
-#   colors {
-#     background #1F1F28
-#     separator #7EB3C9
-#   }
-# }
-
 # Grayscale
-set $base          #030712 
-set $surface       #111827 
-set $overlay       #1f2937 
-set $subtle        #374151  
-set $text          #d1d5db 
-set $alert         #ef4444 
-set $primary       #4b5563 
+# set $base          #030712 
+# set $surface       #111827 
+# set $overlay       #1f2937 
+# set $subtle        #374151  
+# set $text          #d1d5db 
+# set $alert         #ef4444 
+# set $primary       #4b5563 
 
 # Teming border and Windows --------------
 # target                 title    bg    text  indicator border
-client.focused           $primary $base $text $primary  $primary
-client.focused_inactive  $overlay $base $text $subtle   $surface
-client.unfocused         $overlay $base $text $overlay  $overlay
-client.urgent            $text    $base $text $alert    $alert
-client.placeholder       $base    $base $text $overlay  $overlay
-client.background        $base
+# client.focused           $primary $base $text $primary  $primary
+# client.focused_inactive  $overlay $base $text $subtle   $surface
+# client.unfocused         $overlay $base $text $overlay  $overlay
+# client.urgent            $text    $base $text $alert    $alert
+# client.placeholder       $base    $base $text $overlay  $overlay
+# client.background        $base
+
+################# bar appearance                   
+bar {
+	height 25
+	workspace_buttons yes
+	font pango:Noto Sans 12
+	# position top
+	position bottom
+
+	# system icons
+	# tray_output none
+	# tray_output $firstMonitor
+	# tray_output $secondMonitor
+
+	# OPTION 1 : i3status
+
+	# type status_command i3status without the config file and
+	# you will get the standard i3status bar
+	# Second one is the standard statusbar with my personal settings
+
+  # status_command i3status
+	status_command i3status -c ~/.config/i3/i3status.conf
+
+	# OPTION 2 : i3blocks
+
+	# https://github.com/vivien/i3blocks
+	# another way to provide text in the statusbar
+	# put hastag in front if not installed
+
+	# status_command i3blocks
+	# status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	# status_command i3blocks -c ~/.config/i3/i3blocks-rainbow.conf
+	# status_command i3blocks -c ~/.config/i3/i3blocks-original.conf
+	# status_command i3blocks -c ~/.config/i3/i3blocks-awesome.conf
+
+
+	# OPTION 3 : conky
+
+	# You can also replace the istatus bar with a conky
+	# start-conky-i3statusbar.sh is started and conky will follow
+	# documentation : https://i3wm.org/docs/user-contributed/conky-i3bar.html
+	# conky configuration is in conky-i3statusbar
+
+	# status_command ~/.config/i3/start-conky-i3statusbar.sh
+
+	# OPTION 4 : polybar
+
+	# polybar is launched elsewhere - search for the word
+	# from the opening of the "bar {...}" till the end has to go or hashtagged out
+	# in order for the system trayicons to show up in polybar
+
+	##START THEMING BAR
+	# Theme name : ArcoLinux Default
+
+	# i3 bar colors
+	# variable border background Text
+
+		colors {
+				background #2F2F2F
+				statusline #eeeeee
+				separator  #666666
+
+				# colorclass           border  backgr. text
+				focused_workspace     #a9a9a9 #5f676a #eeeeee
+				active_workspace      #a9a9a9 #5f676a #eeeeee
+				inactive_workspace    #a9a9a9 #222222 #a9a9a9
+				urgent_workspace      #a9a9a9 #d42121 #FFFFFF
+		}
+
+}
+##STOP THEMING BAR
+
+##START THEMING WM
+# Theme name : ArcoLinux Default
+
+# Window color settings
+# class                 border  backgr. text    indicator
+client.focused          #6790EB #6790EB #e5e5e5 #6790EB
+client.unfocused        #222222 #222222 #aaaaaa #222222
+client.focused_inactive #222222 #222222 #a9a9a9 #222222
+client.placeholder      #222222 #222222 #aaaaaa #222222
+client.urgent           #d42121 #d42121 #f7f7f7 #d42121
+
+client.background       #242424
+
+##STOP THEMING WM
+######################################## THE END
